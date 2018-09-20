@@ -1,0 +1,16 @@
+import java.time.LocalDate;
+class solution{
+public static String getDay(String day,String month,String year){
+   
+    String m = month;
+  
+    String d = day;
+    
+    String y = year;
+    
+
+    LocalDate localDate = LocalDate.of(Integer.parseInt(year),Integer.parseInt(month),Integer.parseInt(day));
+   String  dayOfWeek = localDate.getDayOfWeek().name(); 
+    return dayOfWeek;
+   
+}
