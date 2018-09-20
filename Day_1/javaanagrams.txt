@@ -1,0 +1,16 @@
+    static boolean isAnagram(String a, String b) {
+        char[] stringToCharArray1 = a.toLowerCase().toCharArray();
+        char[] stringToCharArray2 = b.toLowerCase().toCharArray();
+        
+        java.util.Arrays.sort(stringToCharArray1);
+ 
+        java.util.Arrays.sort(stringToCharArray2);
+        
+        if(java.util.Arrays.equals(stringToCharArray1,stringToCharArray2)){
+           return true;
+        }else{
+           return false;
+        }
+       
+        
+    }
