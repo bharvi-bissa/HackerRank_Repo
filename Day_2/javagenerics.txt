@@ -1,0 +1,8 @@
+
+class Printer {
+    public <G> void printArray(G[] array) {
+        for (G item : array) {
+            System.out.println(item);
+        }
+    }
+}
