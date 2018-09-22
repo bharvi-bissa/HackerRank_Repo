@@ -9,6 +9,10 @@ public class Solution {
         // Write your code here.
         scan.close();
         s = s.trim();
+        if(s.length()==0 || s== null){
+             System.out.println("0");
+             return;
+         }
         String a[]=s.split("[^a-zA-Z]+");
         System.out.println(a.length);
         for(String k:a){
