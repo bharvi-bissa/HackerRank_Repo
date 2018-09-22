@@ -1,0 +1,57 @@
+import java.util.*;
+class Solution{
+    
+    public static String parenthesisChecker(String str){
+        
+        if(str.isEmpty()){
+                return "true";
+        }
+        
+        Stack<Character> stack = new Stack<>();
+        
+        for(int i=0;i<str.length();i++){
+            
+            char currentChar = str.charAt(i);
+            
+            //if currentChar has {,[,( push them into the stack
+            if(currentChar == '{' || currentChar == '[' || currentChar == '('){
+                stack.push(currentChar);
+            }
+            //if currentChar has },],),check if stack is empty,ifEmpty then not balanced
+            
+            if(currentChar == '}' || currentChar == ']' || currentChar == ')'){
+                if(stack.isEmpty()){
+                    return "false";
+                }
+                //if not empty then see the last character
+                
+                char lastChar = stack.peek();
+                //if lastChar and currentChar make pairs then pop from stack else return false
+                
+                 if (currentChar == '}' && lastChar == '{' || currentChar == ')' && lastChar == '(' || currentChar ==']' && lastChar == '['){
+                     stack.pop();
+                 }else{
+                     return "false";
+                 }
+            }
+        }
+        
+        //at last see if stack is empty.
+        return stack.isEmpty() ? "true" : "false";
+    }
+	
+	public static void main(String []argh)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		while (sc.hasNext()) {
+			String input=sc.next();
+            String result = parenthesisChecker(input);
+            System.out.println(result);
+		}
+		
+	}
+}
+
+
+
