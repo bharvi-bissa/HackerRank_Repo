@@ -1,0 +1,21 @@
+public class Solution {
+    public static void main(String[] args) {
+        /*
+            Reflection is an API which is used to examine or modify the behavior of methods,                  classes, interfaces at runtime.
+        */
+        Class student = Student.class;
+        Method[] methods = student.getDeclaredMethods();//get methods from Student class
+
+        /* Get names from Methods */
+        ArrayList<String> methodNames = new ArrayList<>();
+        for (Method method : methods) {
+            methodNames.add(method.getName());
+        }
+        
+        /* Sort and print names */
+        Collections.sort(methodNames);
+        for (String name: methodNames) {
+            System.out.println(name);
+        }
+    }
+}
