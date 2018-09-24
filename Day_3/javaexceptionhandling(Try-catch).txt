@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+     try{
+            Scanner in = new Scanner(System.in);
+            int x = in.nextInt();
+            int y = in.nextInt();
+            if(y==0)
+                throw  new ArithmeticException("/ by zero");
+            else
+                System.out.println(x/y);
+        }catch(InputMismatchException ime){
+            System.out.println(ime.getClass().getName());
+        }catch(ArithmeticException ae){
+            System.out.println(ae);
+        }
+    }
+}
