@@ -1,0 +1,44 @@
+   // Write your code here
+    public static PerformOperation isOdd(){
+        return num ->
+        {
+              if(num%2==0)
+                return false;
+             else
+                return true;
+        } ;
+    }
+
+    public static PerformOperation isPalindrome(){
+         return n -> {
+            String originalString = String.valueOf(n);
+            String reversedString = new StringBuilder(String.valueOf(n)).reverse().toString();
+            return originalString.equals(reversedString);
+        };
+    }
+
+    public static PerformOperation isPrime(){
+         return num ->
+            {
+            int flag = 0;
+            for(int i=2;i<=num/2;i++)
+              {
+                   if(num%i==0)
+                    {
+                      flag = 1;
+                      break; 
+                    }
+                   else
+                    {
+                      flag = 0;
+                      break; 
+                    }
+
+              }
+              if(flag == 0)
+                  return true;
+              else 
+                  return false;
+            }; 
+        }
+}
