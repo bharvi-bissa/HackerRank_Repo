@@ -1,0 +1,3 @@
+        o=new Inner().new Private(); 
+        String str = new Inner().new Private().powerof2(num); 
+        System.out.println(num+" is "+str);
