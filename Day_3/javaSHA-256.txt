@@ -1,0 +1,13 @@
+import java.io.*;
+import java.util.*;
+import java.security.MessageDigest;
+import java.math.BigInteger;
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        sc.close();
+        System.out.println(org.apache.commons.codec.digest.DigestUtils.sha256Hex(str));
+    }
+}
