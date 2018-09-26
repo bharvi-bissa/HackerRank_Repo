@@ -1,74 +1,81 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+'use strict';
 
-public class Solution {
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
-    static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+let inputString = '';
+let currentLine = 0;
 
-        public SinglyLinkedListNode(int nodeData) {
-            this.data = nodeData;
-            this.next = null;
-        }
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+const SinglyLinkedListNode = class {
+    constructor(nodeData) {
+        this.data = nodeData;
+        this.next = null;
+    }
+};
+
+const SinglyLinkedList = class {
+    constructor() {
+        this.head = null;
+        this.tail = null;
     }
 
-    static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
+    insertNode(nodeData) {
+        const node = new SinglyLinkedListNode(nodeData);
 
-        public SinglyLinkedList() {
-            this.head = null;
-            this.tail = null;
+        if (this.head == null) {
+            this.head = node;
+        } else {
+            this.tail.next = node;
         }
 
-        public void insertNode(int nodeData) {
-            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+        this.tail = node;
+    }
+};
 
-            if (this.head == null) {
-                this.head = node;
-            } else {
-                this.tail.next = node;
-            }
+// Complete the printLinkedList function below.
 
-            this.tail = node;
-        }
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode next;
+ * }
+ *
+ */
+function printLinkedList(head) {
+    let node = head;
+    while(node!=null){
+        console.log(node.data);
+        node = node.next;
+    }
+}
+
+function main() {
+    const llistCount = parseInt(readLine(), 10);
+
+    let llist = new SinglyLinkedList();
+
+    for (let i = 0; i < llistCount; i++) {
+        const llistItem = parseInt(readLine(), 10);
+        llist.insertNode(llistItem);
     }
 
-    // Complete the printLinkedList function below.
-     
-    
-    static void printLinkedList(SinglyLinkedListNode head) {
-        SinglyLinkedListNode node = head;
-        while(node!=null){
-            System.out.println(node.data);
-            node = node.next;
-        }
-
-    }
-
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        SinglyLinkedList llist = new SinglyLinkedList();
-
-        int llistCount = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-        for (int i = 0; i < llistCount; i++) {
-            int llistItem = scanner.nextInt();
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-            llist.insertNode(llistItem);
-        }
-
-        printLinkedList(llist.head);
-
-        scanner.close();
-    }
+    printLinkedList(llist.head);
 }
