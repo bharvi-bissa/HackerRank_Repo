@@ -52,20 +52,17 @@ function processData(input) {
     stack.push(s);
     for (var i = 0; i < testcases; i++) {
         const nq = readLine().replace(/\s+$/g, '').split(' ');
-        //console.log(nq);
-        const t = parseInt(nq[0]);
-        //console.log(t);
         
-       // console.log(stack.printStack());
+        const t = parseInt(nq[0]);
         if (t == 1) {
             s = s + nq[1];
             stack.push(s);
-            //console.log(stack.printStack());
+           
         } else if (t == 2) {
             s = s.substring(0, s.length-parseInt(nq[1],10));
             stack.push(s);
         } else if (t == 3) {
-            //console.log("nq[1]="+nq[1]);
+            
             console.log(s.charAt(parseInt(nq[1],10)-1));
         } else {
             stack.pop();
