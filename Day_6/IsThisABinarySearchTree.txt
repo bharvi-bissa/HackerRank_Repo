@@ -1,24 +1,34 @@
-/* Hidden stub code will pass a root argument to the function below. Complete the function to solve the challenge. Hint: you may want to write one or more helper functions.  
-
-The Node class is defined as follows:
-    class Node {
-    int data;
-    Node left;
-    Node right;
-     }
-*/
-    boolean checkBST(Node root) {
-        return isBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+public static ArrayList<Integer> inOrder(Node root,ArrayList<Integer> arr) {
+        Node current=root;
+        if(current.left!=null)
+            arr=inOrder(current.left,arr);
+        arr.add(current.data);
+        if(current.right!=null)
+            arr=inOrder(current.right,arr);
+        return(arr);
     }
-   
-    public boolean isBSTHelper(Node root, int min, int max){
-        if(root == null){
-            return true;
-        }
-        if(root.data <= min || root.data > max){
-            return false;
-        }
-        return isBSTHelper(root.left, min, root.data) && isBSTHelper(root.right, root.data, max);
-    }
-        
     
+    public static boolean isSorted(ArrayList<Integer> array) {
+    boolean result = true;
+    int length = array.size();
+    for(int i = 0; i <length-1; i++) {
+        if(array.get(i) >= array.get(i+1)) {
+            result = false;
+            break;
+        }
+    }
+    return result;
+    }
+    boolean checkBST(Node root) {
+       
+        Node temp=root;
+        boolean status=true;
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        /*in order stored in arraylist*/
+        list=inOrder(root,list);
+        /*checking if inOrder is sorted*/
+        if(!isSorted(list))
+            status=false;
+        
+        return status;
+    }
