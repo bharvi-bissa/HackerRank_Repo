@@ -6,21 +6,26 @@ const processData = input => {
     const upper = lines[1];
     const kaprekarNums = [];
     for(let i = lower; i <= upper; i++) {
+        
         if(isKaprekar(i)) {
             kaprekarNums.push(i);
         }
     }
+    
     if(kaprekarNums.length > 0) {
         console.log(kaprekarNums.join(" "));
     } else {
         console.log("INVALID RANGE");
     }
+    
 };
 
 const isKaprekar = (num) => {
     const square = parseInt(Math.pow(num, 2)).toString();
     if(square.length > 1) {
+        //extracting the subparts of the number
         const l = parseInt(square.substring(0, square.length / 2));
+        //begin the extraction at position square.length/2 and continue to the end
         const r = parseInt(square.substring(square.length / 2));
         return (l + r) === num;
     } else {
