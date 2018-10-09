@@ -24,7 +24,6 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the camelcase function below.
 function camelcase(s) {
     let count=1;
     for(var i=0;i<s.length;i++){
