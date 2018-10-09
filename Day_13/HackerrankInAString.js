@@ -24,7 +24,7 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the hackerrankInString function below.
+
 function hackerrankInString(s) {
 
     var str = "hackerrank";
