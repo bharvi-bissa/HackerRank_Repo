@@ -24,7 +24,7 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the bigSorting function below.
+
 function bigSorting(unsorted) {
 
     unsorted.sort((a,b) => {
