@@ -24,7 +24,7 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the acmTeam function below.
+
 function binaryToDecimal(n) {
     let decimalNumber = 0, i = 0, remainder;
     while (n!=0) {
