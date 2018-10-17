@@ -24,7 +24,7 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the powerSum function below.
+// Complete the powerSum function below
 function powerSum(X, N, num) {
   const pow = Math.pow(num, N)
   console.log(pow)
