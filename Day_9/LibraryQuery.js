@@ -32,7 +32,7 @@ function processData(input) {
                         f.fill(0);
                         break;
                     } else {
-                        //console.log(`skipping ${f[c]} at ${c}, ${remaining} remaining`)
+                        
                     }
                 }
             }
